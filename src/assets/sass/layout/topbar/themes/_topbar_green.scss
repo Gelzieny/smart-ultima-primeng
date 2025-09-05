@@ -1,0 +1,13 @@
+.layout-topbar-green {
+    $topbarBgColor: #00695F;
+    $topbarLeftBgColor: #00695F;
+
+    $topbarItemTextColor: #ffffff;
+    $topbarItemTextHoverBgColor: rgba(255,255,255,.12);
+
+    $topbarMenuButtonBgColor:#F4511E;
+    $topbarMenuButtonTextColor:#ffffff;
+
+    @import '../_topbar_exports';
+    @import '../_topbar_theme';
+}

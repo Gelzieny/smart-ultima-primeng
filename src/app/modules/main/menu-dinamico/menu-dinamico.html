@@ -1,0 +1,12 @@
+<div class="menu-container">
+    <div class="flex justify-content-center">
+        <span class="p-input-icon-left my-2">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Pesquisar item" [(ngModel)]="searchTerm" (input)="filterMenu()" />
+        </span>
+    </div>
+
+    <div class="flex justify-content-center">
+        <p-panelMenu [model]="filteredItems" [style]="{'width':'240px'}"></p-panelMenu>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="layout-breadcrumb-container flex justify-content-between align-items-center shadow-1">
+    <p-breadcrumb [model]="items" [home]="home" styleClass="layout-breadcrumb pl-4 py-2"></p-breadcrumb>
+
+    <div class="layout-breadcrumb-buttons flex align-items-center pr-3">
+        <div class="flex align-items-center">
+            <button pButton pRipple type="button" icon="pi pi-minus" (click)="decrementScale()"
+                    class="p-button-rounded p-button-text"
+                    [disabled]="scale === scales[0]" pTooltip="Diminuir Escala" tooltipPosition="left"></button>
+            <i *ngFor="let s of scales" [ngClass]="{
+                'pi pi-circle-on m-1 scale-icon': true,
+                'scale-active': s === scale,
+                'primary-color': s === scale
+            }" (click)="changeScale(s)">
+            </i>
+            <button pButton pRipple type="button" icon="pi pi-plus" (click)="incrementScale()"
+                    class="p-button-rounded p-button-text"
+                    [disabled]="scale === scales[scales.length - 1]" pTooltip="Aumentar Escala"></button>
+        </div>
+
+        <button *ngIf="isLightMode" pButton pRipple icon="pi pi-moon"
+                class="p-button-rounded p-button-text p-button-plain mr-1"
+                type='submit' (click)="setDarkMode($event, 'dark')" value="dark"
+                [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}" pTooltip="Modo Dark"></button>
+        <button *ngIf="!isLightMode" pButton pRipple icon="pi pi-sun"
+                class="p-button-rounded p-button-text p-button-plain mr-1"
+                type='submit' (click)="setLightMode($event, 'light')" value="light"
+                [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}" pTooltip="Modo Light"></button>
+
+        <form method="POST" [action]="logoutUrl" id="xForm" name="xForm" (ngSubmit)="onSubmit($event)">
+            <input type='hidden' name='id_token_hint' value="{{idToken}}"/>
+            <input type='hidden' name='post_logout_redirect_uri' value='{{urlRedirect}}'/>
+            <button pButton pRipple icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-plain mr-1"
+                    type='submit' pTooltip="Sair" tooltipPosition="left"></button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="layout-topbar shadow-4">
+    <div class="layout-topbar-left">
+        <a class="layout-topbar-logo" routerLink="/">
+            <img id="app-logo" src="assets/layout/images/logo-governo-goias.png" alt="Brasão do Estado de Goiás" style="height: 3.25rem">
+            <h2 class="ml-3"><b>SMART-NG</b></h2>
+        </a>
+
+        <a class="layout-menu-button shadow-6" (click)="appMain.onMenuButtonClick($event)" pRipple>
+            <i class="pi pi-chevron-right"></i>
+        </a>
+
+        <a class="layout-topbar-mobile-button" (click)="appMain.onTopbarMobileButtonClick($event)" pRipple>
+            <i class="pi pi-ellipsis-v fs-large"></i>
+        </a>
+    </div>
+
+    <div  class="layout-topbar-right" [ngClass]="{'layout-topbar-mobile-active': appMain.mobileTopbarActive}">
+        <div class="layout-topbar-actions-right">
+            <ul class="layout-topbar-items">
+                <li class="layout-topbar-item" style="margin-left: auto;">
+                    <a class="layout-topbar-action flex flex-row justify-content-center align-items-center px-2" (click)="appMain.onTopbarItemClick($event, 'profile')" pRipple >
+                        <ngx-avatars gravatarId="{{usuario?.email}}" size="40" ></ngx-avatars>
+                        <div class=" ml-2 flex flex-column">
+                            <span class="font-bold">{{usuario?.nome}}</span>
+                            <small>{{usuario?.email}}</small>
+                        </div>
+                    </a>
+
+                    <ul class="layout-topbar-action-panel shadow-6" [@topbarActionPanelAnimation]="'visible'" *ngIf="appMain.activeTopbarItem === 'profile'">
+                        <li class="layout-topbar-action-item">
+                            <a class="flex flex-row align-items-center" pRipple (click)="goToProfile()">
+                                <i class="pi pi-cog" [ngClass]="{'mr-2': !app.isRTL, 'ml-2': app.isRTL}"></i>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

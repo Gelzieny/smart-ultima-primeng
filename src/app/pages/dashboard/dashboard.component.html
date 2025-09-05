@@ -1,0 +1,516 @@
+<div class="grid dashboard">
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="card overview-box flex flex-column pt-2">
+            <div class="flex align-items-center muted-text">
+                <i class="pi pi-shopping-cart"></i>
+                <h6 class="m-0" [ngClass]="{'pl-2': !app.isRTL, 'pr-2': app.isRTL}">Pedidos</h6>
+                <div [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu1.toggle($event)"></button>
+                    <p-menu #menu1 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+            <div class="flex justify-content-between mt-3 flex-wrap">
+                <div class="flex flex-column" style="width: 80px">
+                    <span class="mb-1 fs-xlarge">640</span>
+                    <span class="overview-status p-1 teal-bgcolor fs-small">1420 Completos</span>
+                </div>
+                <div class="flex align-items-end">
+                    <p-chart type="line" [data]="overviewChartData1" [options]="overviewChartOptions1" responsive="true" height="60px" width="160px"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="card overview-box flex flex-column pt-2">
+            <div class="flex align-items-center muted-text">
+                <i class="pi pi-dollar"></i>
+                <h6 class="m-0" [ngClass]="{'pl-2': !app.isRTL, 'pr-2': app.isRTL}">Receitas</h6>
+                <div [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu2.toggle($event)"></button>
+                    <p-menu #menu2 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+            <div class="flex justify-content-between mt-3 flex-wrap">
+                <div class="flex flex-column" style="width: 80px">
+                    <span class="mb-1 fs-xlarge">$57K</span>
+                    <span class="overview-status p-1 teal-bgcolor fs-small">R$57,64 Faturado</span>
+                </div>
+                <div class="flex align-items-end">
+                    <p-chart type="line" [data]="overviewChartData2" [options]="overviewChartOptions2" responsive="true" height="60px" width="160px"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="card overview-box flex flex-column pt-2">
+            <div class="flex align-items-center muted-text">
+                <i class="pi pi-users"></i>
+                <h6 class="m-0" [ngClass]="{'pl-2': !app.isRTL, 'pr-2': app.isRTL}">Clientes</h6>
+                <div [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu3.toggle($event)"></button>
+                    <p-menu #menu3 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+            <div class="flex justify-content-between mt-3 flex-wrap">
+                <div class="flex flex-column" style="width: 80px">
+                    <span class="mb-1 fs-xlarge">8572</span>
+                    <span class="overview-status p-1 pink-bgcolor fs-small">25402 Registrados</span>
+                </div>
+                <div class="flex align-items-end">
+                    <p-chart type="line" [data]="overviewChartData3" [options]="overviewChartOptions3" responsive="true" height="60px" width="160px"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="card overview-box flex flex-column pt-2">
+            <div class="flex align-items-center muted-text">
+                <i class="pi pi-comments"></i>
+                <h6 class="m-0" [ngClass]="{'pl-2': !app.isRTL, 'pr-2': app.isRTL}">Comentários</h6>
+                <div [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu4.toggle($event)"></button>
+                    <p-menu #menu4 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+            <div class="flex justify-content-between mt-3 flex-wrap">
+                <div class="flex flex-column" style="width: 80px">
+                    <span class="mb-1 fs-xlarge">805</span>
+                    <span class="overview-status p-1 teal-bgcolor fs-small">85 Respondidos</span>
+                </div>
+                <div class="flex align-items-end">
+                    <p-chart type="line" [data]="overviewChartData4" [options]="overviewChartOptions4" responsive="true" height="60px" width="160px"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 lg:col-6">
+        <div class="card height-100">
+            <div class="card-header">
+                <h5>Contatos</h5>
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu5.toggle($event)"></button>
+                    <p-menu #menu5 [popup]="true" [model]="[{label: 'Novo', icon: 'pi pi-fw pi-plus'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'},{label: 'Deletar', icon: 'pi pi-fw pi-trash'}]"></p-menu>
+                </div>
+            </div>
+
+            <ul class="widget-list">
+                <li class="flex align-items-center py-3">
+                    <div class="person-item flex align-items-center">
+                        <img src="assets/demo/images/avatar/xuxuefeng.png">
+                        <div [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">
+                            <div>Xuxue Feng</div>
+                            <small class="muted-text">feng@gov.goias.com</small>
+                        </div>
+                    </div>
+                    <span class="person-tag indigo-bgcolor p-1 fs-small" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">Contabilidade</span>
+                    <span class="person-tag orange-bgcolor p-1 fs-small" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Vendas</span>
+                </li>
+
+                <li class="flex align-items-center py-3">
+                    <div class="person-item flex align-items-center">
+                        <img src="assets/demo/images/avatar/elwinsharvill.png">
+                        <div [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">
+                            <div>Elwin Sharvill</div>
+                            <small class="muted-text">sharvill@gov.goias.com</small>
+                        </div>
+                    </div>
+                    <span class="person-tag teal-bgcolor p-1 fs-small" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">Finanças</span>
+                    <span class="person-tag orange-bgcolor p-1 fs-small" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Vendas</span>
+                </li>
+
+                <li class="flex align-items-center py-3">
+                    <div class="person-item flex align-items-center">
+                        <img src="assets/demo/images/avatar/asiyajavayant.png">
+                        <div [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">
+                            <div>Anna Fali</div>
+                            <small class="muted-text">fali@gov.goias.com</small>
+                        </div>
+                    </div>
+                    <span class="person-tag pink-bgcolor p-1 fs-small" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">Gerenciamento</span>
+                </li>
+
+                <li class="flex align-items-center py-3">
+                    <div class="person-item flex align-items-center">
+                        <img src="assets/demo/images/avatar/ivanmagalhaes.png">
+                        <div [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">
+                            <div>Jon Stone</div>
+                            <small class="muted-text">stone@gov.goias.com</small>
+                        </div>
+                    </div>
+                    <span class="person-tag pink-bgcolor p-1 fs-small" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">Gerenciamento</span>
+                    <span class="person-tag teal-bgcolor p-1 fs-small" [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">Finanças</span>
+                </li>
+
+                <li class="flex align-items-center py-3">
+                    <div class="person-item flex align-items-center">
+                        <img src="assets/demo/images/avatar/stephenshaw.png">
+                        <div [ngClass]="{'ml-2': !app.isRTL, 'mr-2': app.isRTL}">
+                            <div>Stephen Shaw</div>
+                            <small class="muted-text">shaw@gov.goias.com</small>
+                        </div>
+                    </div>
+                    <span class="person-tag teal-bgcolor p-1 fs-small" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">Finanças</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12 lg:col-6">
+        <div class="card height-100">
+            <div class="card-header">
+                <h5>Gráfico de Pedidos</h5>
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu6.toggle($event)"></button>
+                    <p-menu #menu6 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+            <p-chart type="line" [data]="ordersChart" [options]="ordersOptions" height="300px"></p-chart>
+        </div>
+    </div>
+
+    <div class="col-12 lg:col-6">
+        <div class="card height-100 widget-timeline">
+            <div class="card-header">
+                <h5>Timeline</h5>
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu7.toggle($event)"></button>
+                    <p-menu #menu7 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+
+            <p-timeline [value]="timelineEvents" align="left" styleClass="customized-timeline">
+                <ng-template pTemplate="marker" let-event>
+                    <span class="custom-marker shadow-2 p-2" [style.backgroundColor]="event.color">
+                        <i class="marker-icon" [ngClass]="event.icon"></i>
+                    </span>
+                </ng-template>
+                <ng-template pTemplate="content" let-event>
+                    <p-card styleClass="mb-3" [header]="event.status" [subheader]="event.date">
+                        <img *ngIf="event.image" [src]="'assets/showcase/images/demo/product/' + event.image" [alt]="event.name" width="200" class="shadow-2" />
+                        <p>{{event.description}}</p>
+                    </p-card>
+                </ng-template>
+            </p-timeline>
+        </div>
+    </div>
+
+    <div class="col-12 lg:col-6">
+        <div class="card height-100">
+            <div class="card-header">
+                <h5>Atividades</h5>
+                <div>
+                    <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu9.toggle($event)"></button>
+                    <p-menu #menu9 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                </div>
+            </div>
+
+            <ul class="widget-activity">
+                <li>
+                    <div class="activity-item flex flex-column">
+                        <div class="activity-title mb-1">Renda</div>
+                        <div class="activity-subtext mb-2">30 Novembro, 16.20</div>
+                        <p-progressBar [value]="50" [showValue]="false"></p-progressBar>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-item flex flex-column">
+                        <div class="activity-title mb-1">Taxa</div>
+                        <div class="activity-subtext mb-2">1 Dezembro, 15.27</div>
+                        <p-progressBar [value]="15" [showValue]="false"></p-progressBar>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-item flex flex-column">
+                        <div class="activity-title mb-1">Fatura</div>
+                        <div class="activity-subtext mb-2">1 Dezembro, 15.28</div>
+                        <p-progressBar [value]="78" [showValue]="false"></p-progressBar>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-item flex flex-column">
+                        <div class="activity-title mb-1">Bónus</div>
+                        <div class="activity-subtext mb-2">1 Dezembro, 23.55</div>
+                        <p-progressBar [value]="85" [showValue]="false"></p-progressBar>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-item flex flex-column">
+                        <div class="activity-title mb-1">Receita</div>
+                        <div class="activity-subtext mb-2">30 Novembro, 16.20</div>
+                        <p-progressBar [value]="54" [showValue]="false"></p-progressBar>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid dashboard">
+        <div class="col-12 md:col-8">
+            <div class="card height-100">
+                <div class="card-header">
+                    <h5>Comparação Mensal</h5>
+                    <button pRipple pButton type="button" label="Dado Vertical" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="changeMonthlyDataView()"></button>
+                </div>
+
+                <p-chart #bar type="bar" [data]="chartMonthlyData" [options]="chartMonthlyOptions" responsive="true" height="400px"></p-chart>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="card widget-insights height-100">
+                <div class="card-header mb-2">
+                    <h5>Insights</h5>
+                    <div>
+                        <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu11.toggle($event)"></button>
+                        <p-menu #menu11 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                    </div>
+                </div>
+                <div class="card-subheader mb-2 flex align-items-center">
+                    <span>22 de Novembro - 29 de Novembro</span>
+                    <button pRipple pButton type="button" label="Dados Semi/Completo" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="changeDoughnutDataView()"></button>
+                </div>
+                <p-chart #doughnut type="doughnut" [data]="doughnutData" [options]="doughnutOptions" responsive="true" height="200px"></p-chart>
+                <div class="flex flex-column justify-content-center">
+                    <div class="flex flex-row align-items-center mt-4 px-3">
+                        <i class="pi pi-thumbs-up p-3 rounded-circle lightgreen-bgcolor solid-surface-text-color"></i>
+                        <div class="flex flex-column" [ngClass]="{'ml-3': !app.isRTL, 'mr-3': app.isRTL}">
+                            <span>Melhor dia da semana</span>
+                            <small>Sábado</small>
+                        </div>
+                        <span class="indigo-color" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">95</span>
+                    </div>
+                    <div class="flex flex-row align-items-center my-4 px-3">
+                        <i class="pi pi-thumbs-down rounded-circle p-3 orange-bgcolor solid-surface-text-color"></i>
+                        <div class="flex flex-column" [ngClass]="{'ml-3': !app.isRTL, 'mr-3': app.isRTL}">
+                            <span>Pior dia da semana</span>
+                            <small>Domingo</small>
+                        </div>
+                        <span class="indigo-color" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="card widget-social">
+                <div class="flex justify-content-between align-items-center p-3">
+                    <div class="social-icon">
+                        <i class="pi pi-twitter blue-color fs-xxlarge"></i>
+                    </div>
+                    <div class="info flex flex-column">
+                        <span class="value">44.995</span>
+                        <span class="subtext mt-2">Retweets</span>
+                    </div>
+                </div>
+
+                <div class="stats flex justify-content-between mt-3">
+                    <div class="left flex flex-column ">
+                        <span class="title">Alvo</span>
+                        <span class="value mb-2">10.000</span>
+                        <p-progressBar [value]="50" [showValue]="false"></p-progressBar>
+                    </div>
+                    <div class="right flex flex-column">
+                        <span class="title">Registro Total</span>
+                        <span class="value mb-2">50.702</span>
+                        <p-progressBar [value]="24" [showValue]="false"></p-progressBar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="card widget-social">
+                <div class="flex justify-content-between align-items-center p-3">
+                    <div class="social-icon">
+                        <i class="pi pi-facebook indigo-color fs-xxlarge"></i>
+                    </div>
+                    <div class="info flex flex-column">
+                        <span class="value">44.995</span>
+                        <span class="subtext mt-2">Iterações no Facebook</span>
+                    </div>
+                </div>
+
+                <div class="stats flex justify-content-between mt-3">
+                    <div class="left flex flex-column ">
+                        <span class="title">Alvo</span>
+                        <span class="value mb-2">10.000</span>
+                        <p-progressBar [value]="23" [showValue]="false"></p-progressBar>
+                    </div>
+                    <div class="right flex flex-column">
+                        <span class="title">Registro Total</span>
+                        <span class="value mb-2">99.028</span>
+                        <p-progressBar [value]="38" [showValue]="false"></p-progressBar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="card widget-social">
+                <div class="flex justify-content-between align-items-center p-3">
+                    <div class="social-icon">
+                        <i class="pi pi-github text-color fs-xxlarge"></i>
+                    </div>
+                    <div class="info flex flex-column">
+                        <span class="value">81.002</span>
+                        <span class="subtext mt-2">Estrelas</span>
+                    </div>
+                </div>
+
+                <div class="stats flex justify-content-between mt-3">
+                    <div class="left flex flex-column ">
+                        <span class="title">Alvo</span>
+                        <span class="value mb-2">10.000</span>
+                        <p-progressBar [value]="62" [showValue]="false"></p-progressBar>
+                    </div>
+                    <div class="right flex flex-column">
+                        <span class="title">Registro Total</span>
+                        <span class="value mb-2">162.550</span>
+                        <p-progressBar [value]="14" [showValue]="false"></p-progressBar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-12">
+            <div class="card grid grid-nogutter widget-sales block sm:flex">
+                <div class="lg:col-3 md:col-6 sm:col-12 p-0">
+                    <div class="sales-info flex flex-column p-4">
+                        <span class="muted-text">Vendas da loja A</span>
+                        <span class="fs-large mt-2">
+                            <i *ngIf="storeADiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeADiff > 0, 'pi-arrow-down pink-color': storeADiff < 0}"></i>
+                            R$ {{storeATotalValue}}
+                            <span *ngIf="storeADiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeADiff > 0, 'pink-color': storeADiff < 0}">
+                                {{storeADiff > 0 ? '+' : ''}}{{storeADiff}}
+                            </span>
+                        </span>
+                    </div>
+                    <div class="px-4">
+                        <p-chart #storeA type="line" [data]="storeAData" [options]="storeAOptions" responsive="true"></p-chart>
+                    </div>
+                </div>
+                <div class="lg:col-3 md:col-6 sm:col-12 p-0">
+                    <div class="sales-info flex flex-column p-4">
+                        <span class="muted-text">Vendas da loja B</span>
+                        <span class="fs-large mt-2">
+                            <i *ngIf="storeBDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeBDiff > 0, 'pi-arrow-down pink-color': storeBDiff < 0}"></i>
+                            R$ {{storeBTotalValue}}
+                            <span *ngIf="storeBDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL,'green-color': storeBDiff > 0, 'pink-color': storeBDiff < 0}">
+                                {{storeBDiff > 0 ? '+' : ''}}{{storeBDiff}}
+                            </span>
+                        </span>
+                    </div>
+                    <div class="px-4">
+                        <p-chart #storeB type="line" [data]="storeBData" [options]="storeBOptions" responsive="true"></p-chart>
+                    </div>
+                </div>
+                <div class="lg:col-3 md:col-6 sm:col-12 p-0">
+                    <div class="sales-info flex flex-column p-4">
+                        <span class="muted-text">Vendas da loja C</span>
+                        <span class="fs-large mt-2">
+                            <i *ngIf="storeCDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeCDiff > 0, 'pi-arrow-down pink-color': storeCDiff < 0}"></i>
+                            R$ {{storeCTotalValue}}
+                            <span *ngIf="storeCDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeCDiff > 0, 'pink-color': storeCDiff < 0}">
+                                {{storeCDiff > 0 ? '+' : ''}}{{storeCDiff}}
+                            </span>
+                        </span>
+                    </div>
+                    <div class="px-4">
+                        <p-chart #storeC type="line" [data]="storeCData" [options]="storeCOptions" responsive="true"></p-chart>
+                    </div>
+                </div>
+                <div class="lg:col-3 md:col-6 sm:col-12 p-0">
+                    <div class="sales-info flex flex-column p-4">
+                        <span class="muted-text">Vendas da loja D</span>
+                        <span class="fs-large mt-2">
+                            <i *ngIf="storeDDiff !== 0" class="fw-700 fs-large pi" [ngClass]="{'pr-1': !app.isRTL, 'pl-1': app.isRTL, 'pi-arrow-up green-color': storeDDiff > 0, 'pi-arrow-down pink-color': storeDDiff < 0}"></i>
+                            R$ {{storeDTotalValue}}
+                            <span *ngIf="storeDDiff !== 0" class="fw-500 fs-normal" [ngClass]="{'ml-1': !app.isRTL, 'mr-1': app.isRTL, 'green-color': storeDDiff > 0, 'pink-color': storeDDiff < 0}">
+                                {{storeDDiff > 0 ? '+' : ''}}{{storeDDiff}}
+                            </span>
+                        </span>
+                    </div>
+                    <div class="px-4">
+                        <p-chart #storeD type="line" [data]="storeDData" [options]="storeDOptions" responsive="true"></p-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-4">
+            <div class="card height-100 widget-topsearchs">
+                <div class=card-header>
+                    <h5>Top Buscas</h5>
+                    <div>
+                        <button pButton pRipple type="button" icon="pi pi-ellipsis-h" class="p-button-rounded p-button-text p-button-plain" (click)="menu12.toggle($event)"></button>
+                        <p-menu #menu12 [popup]="true" [model]="[{label: 'Atualizar', icon: 'pi pi-fw pi-refresh'},{label: 'Editar', icon: 'pi pi-fw pi-pencil'}]"></p-menu>
+                    </div>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Estojo Laranja</span>
+                    <span class="value type-green">82% TAXA DE CONVERSÃO</span>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Camisa Space</span>
+                    <span class="value type-green">78% TAXA DE CONVERSÃO</span>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Moletom Preto</span>
+                    <span class="value type-green">61% TAXA DE CONVERSÃO</span>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Macbook</span>
+                    <span class="value type-yellow">48 TAXA DE CONVERSÃO</span>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Camisa Robots</span>
+                    <span class="value type-yellow">34% TAXA DE CONVERSÃO</span>
+                </div>
+                <div class="flex justify-content-between item">
+                    <span>Adesivo Portal Verde</span>
+                    <span class="value type-pink">11% TAXA DE CONVERSÃO</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 md:col-8">
+            <div class="card widget-traffic height-100">
+                <div class="card-header">
+                    <h5>Total de Canais de Tráfego</h5>
+                    <button pRipple pButton type="button" label="Dados Pizza/Rosca" class="p-button-text" [ngClass]="{'ml-auto': !app.isRTL, 'mr-auto': app.isRTL}" (click)="togglePieDoughnut()"></button>
+                    <button pRipple pButton type="button" label="Dados Semi/Completos" class="p-button-text mx-2" (click)="changePieDoughnutDataView()"></button>
+                </div>
+                <div class="flex grid">
+                    <div class="col-12 md:col-6 left flex flex-column justify-content-evenly">
+                        <div class="total flex flex-column">
+                            <span class="title mb-2">Total</span>
+                            <span class="value mb-5">66.761</span>
+                        </div>
+
+                        <div class="info flex justify-content-between">
+                            <div class="organic flex flex-column">
+                                <span class="title mb-1">Orgânico</span>
+                                <span class="value">51.596</span>
+                            </div>
+                            <div class="direct flex flex-column">
+                                <span class="title mb-1">Direto</span>
+                                <span class="value">11.421</span>
+                            </div>
+                            <div class="referral flex flex-column">
+                                <span class="title mb-1">Referência</span>
+                                <span class="value">3.862</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 right flex justify-content-center">
+                        <p-chart #pie type="pie" [data]="pieData" [options]="pieOptions" [style]="{'width': '70%'}"></p-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

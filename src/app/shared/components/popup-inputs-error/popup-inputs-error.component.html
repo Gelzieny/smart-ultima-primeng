@@ -1,0 +1,11 @@
+<div *ngIf="mode === 'popup'" class="input-popup" [ngStyle]="{'width': parentWidth}" [ngClass]="{ 'input-popup-show': showMessages, 'input-popup-hide': !showMessages }">
+    <div class="input-popup-content">
+        <ng-content></ng-content>
+    </div>
+</div>
+<p-messages *ngIf="mode === 'messages'" severity="error" [ngClass]="{ 'input-popup-show': showMessages, 'input-popup-hide': !showMessages }">
+    <ng-template pTemplate>
+        <i class="pi pi-times-circle mr-2"></i>
+        <ng-content select="[message]"></ng-content>
+    </ng-template>
+</p-messages>

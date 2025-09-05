@@ -1,0 +1,37 @@
+<ng-template [ngIf]="property">
+    <ng-template [ngIf]="page && !page.empty && page.orders.length > 0">
+      <ng-template [ngIf]="page.orders[0].property == property">
+        <ng-template [ngIf]="page.orders[0].descending">
+          <th (click)="changeOrder(property, directionAsc)" scope="col">
+            {{ title }}
+          </th>
+        </ng-template>
+        <ng-template [ngIf]="page.orders[0].ascending">
+          <th (click)="changeOrder(property, directionDesc)" scope="col">
+            {{ title }}
+          </th>
+        </ng-template>
+        <ng-template [ngIf]="!(page.orders[0].ascending || page.orders[0].descending)">
+          <th (click)="changeOrder(property, directionAsc)" scope="col">
+            {{ title }}
+          </th>
+        </ng-template>
+      </ng-template>
+      <ng-template [ngIf]="page.orders[0].property != property">
+        <th (click)="changeOrder(property, directionAsc)" scope="col">
+          {{ title }}
+        </th>
+      </ng-template>
+    </ng-template>
+    <ng-template [ngIf]="!(page && !page.empty && page.orders.length > 0)">
+      <th (click)="changeOrder(property, directionAsc)" scope="col">
+        {{ title }}
+      </th>
+    </ng-template>
+  </ng-template>
+  <ng-template [ngIf]="!property">
+    <th scope="col">
+      {{ title }}
+    </th>
+  </ng-template>
+  

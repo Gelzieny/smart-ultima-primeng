@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+
+<p-card header="Cliente">
+    <form [formGroup]="clienteForm" class="formgrid grid">
+        <div class="field col-6">
+            <label>Nome</label>
+            <input type="text" pInputText formControlName="nome" class="w-full"
+                   [ngClass]="{ 'ng-invalid': clienteForm.get('nome')?.errors?.['required'] &&
+                   clienteForm.get('nome')?.touched, 'ng-dirty': clienteForm.get('nome')?.errors?.['required'] &&
+                   clienteForm.get('nome')?.touched }">
+        </div>
+        <div class="field col-6">
+            <label>CPF</label>
+            <p-inputMask styleClass="w-full" [unmask]="true" mask="999.999.999-99" placeholder="000.000.000-00"
+                         formControlName="cpf"
+                         [ngClass]="{ 'ng-invalid': clienteForm.get('cpf')?.errors?.['required'] &&
+                         clienteForm.get('cpf')?.touched, 'ng-dirty': clienteForm.get('cpf')?.errors?.['required'] &&
+                         clienteForm.get('cpf')?.touched }">
+            </p-inputMask>
+            <popup-input-erros [hasErrors]="clienteForm.get('cpf').invalid && (clienteForm.get('cpf').dirty || clienteForm.get('cpf').touched)">
+                <p *ngIf="clienteForm.get('cpf').errors?.['cpfInvalido']">O CPF informado é inválido.</p>
+            </popup-input-erros>
+        </div>
+        <div class="field col-6">
+            <label>Telefone</label>
+            <p-inputMask styleClass="w-full" [unmask]="true" mask="(99)99999-9999" placeholder="(00)0000-0000"
+                         formControlName="telefone"
+                         [ngClass]="{ 'ng-invalid': clienteForm.get('telefone')?.errors?.['required'] &&
+                         clienteForm.get('telefone')?.touched, 'ng-dirty': clienteForm.get('telefone')?.errors?.['required'] &&
+                         clienteForm.get('telefone')?.touched }"></p-inputMask>
+        </div>
+        <div class="field col-6">
+            <label>Endereço</label>
+            <input type="text" pInputText formControlName="endereco" class="w-full"
+                   [ngClass]="{ 'ng-invalid': clienteForm.get('endereco')?.errors?.['required'] &&
+                   clienteForm.get('endereco')?.touched, 'ng-dirty': clienteForm.get('endereco')?.errors?.['required'] &&
+                   clienteForm.get('endereco')?.touched }">
+        </div>
+    </form>
+    <p-toolbar>
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="Voltar" class="p-button-info mr-2" (click)="voltar()"></button>
+        </ng-template>
+        <ng-template pTemplate="right">
+            <button pButton pRipple label="Salvar" icon="pi pi-plus" class="p-button-success mr-2"
+                    (click)="salvar()"></button>
+        </ng-template>
+    </p-toolbar>
+</p-card>

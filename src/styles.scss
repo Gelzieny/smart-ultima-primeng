@@ -1,0 +1,60 @@
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/prismjs/themes/prism-coy.css";
+@import "assets/demo/documentation.scss";
+
+$primaryColor: #00695F;
+$borderRadius: 8px;
+
+.card{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.grid{
+    align-items: center;
+}
+
+.form-actions{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px
+}
+
+.smart-fieldset {
+    margin: 0 auto;
+    border: unset;
+    border-radius: $borderRadius;
+    transition: all 0.5s ease-in;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    legend{
+        font-weight: bolder;
+        color: white;
+        background-color: lighten($primaryColor, 5%);
+        position: relative;
+        top: -14px;
+        left: 3px;
+        padding: 5px 15px;
+        border-radius: 8px 8px 0 0;
+    }
+    .legend-settings {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.p-scrollpanel-content {
+    padding: 4px 22px 18px 4px !important;
+}
+
+.p-disabled, .p-component:disabled {
+    opacity: 0.5;
+}
+
+:fullscreen {
+    width: 100%;
+    height: 100%;
+    background: white;
+}

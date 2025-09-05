@@ -1,0 +1,18 @@
+.mode-button {
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .primary-color {
+    color: var(--primary-color)
+  }
+
+  /* CSS para ocultar em dispositivos móveis usando media query */
+@media screen and (max-width: 767px) {
+    .hide-mobile {
+        display: none;
+    }
+}

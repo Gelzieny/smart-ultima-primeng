@@ -1,0 +1,115 @@
+<p-toast></p-toast>
+<form [formGroup]="form">
+    <fieldset class="p-fluid grid p-formgrid smart-fieldset mt-4">
+        <legend>Filtros</legend>
+        <div class="field col-12 md:col-4">
+            <label htmlFor="cpf">CPF</label>
+            <span class="p-input-icon-right">
+               <p-inputMask
+                   id="cpf"
+                   formControlName="cpf"
+                   aria-describedby="cpf-help"
+                   mask="999.999.999-99"
+                   [ngClass]="{'ng-invalid ng-dirty': cpf.invalid && (cpf.dirty || cpf.touched)}"
+               ></p-inputMask>
+            </span>
+            <popup-input-erros [hasErrors]="cpf.invalid && (cpf.dirty || cpf.touched)">
+                <p *ngIf="cpf.errors?.['cpfInvalido']">O CPF informado é inválido.</p>
+            </popup-input-erros>
+
+        </div>
+        <div class="col-12 md:col-4">
+            <div class="flex ">
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-times"
+                    type="button"
+                    label="Limpar"
+                    class="p-button-raised p-button-secondary flex-wrap justify-content-center"
+                    (click)="clear()"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-filter"
+                    type="button"
+                    label="Filtrar"
+                    class="p-button-raised"
+                    [disabled]="form.invalid"
+                    (click)="filter()"
+                ></button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+<fieldset class="p-fluid grid p-formgrid smart-fieldset mt-5">
+    <legend>Clientes</legend>
+    <div class="card">
+        <p-toolbar styleClass="mb-4 gap-2">
+            <ng-template ngxPermissionsOnly="['Cliente.I']" pTemplate="left">
+                <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+                        (click)="addCliente()"></button>
+            </ng-template>
+        </p-toolbar>
+        <br>
+        <p-table
+            #table
+            responsiveLayout="stack"
+            dataKey="id"
+            currentPageReportTemplate="Montrando {first} a {last} de {totalRecords} registros"
+            [(rows)]="rows"
+            [lazy]="true"
+            [rowHover]="true"
+            [paginator]="true"
+            [loading]="loading"
+            [breakpoint]="'960px'"
+            [totalRecords]="totalElements"
+            [showCurrentPageReport]="true"
+            [value]="clientes$ | async"
+            [tableStyle]="{'width': '100%'}"
+            [rowsPerPageOptions]="[2,5,10,15,25,50,100,200]"
+            (selectionChange)="onSelectionChange($event)"
+            (onLazyLoad)="loadPage($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID
+                        <p-sortIcon field="id"></p-sortIcon>
+                    </th>
+                    <th>Nome
+                        <p-sortIcon field="nome"></p-sortIcon>
+                    </th>
+                    <th>CPF
+                        <p-sortIcon field="cpf"></p-sortIcon>
+                    </th>
+                    <th>Telefone
+                        <p-sortIcon field="telefone"></p-sortIcon>
+                    </th>
+                    <th>Endereço
+                        <p-sortIcon field="endereco"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cliente>
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.cpf }}</td>
+                    <td>{{ cliente.telefone }}</td>
+                    <td>{{ cliente.endereco }}</td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" *ngxPermissionsOnly="['Cliente.A']" class="p-button-rounded p-button-warning mr-2"
+                                    (click)="editCliente(cliente)"></button>
+                        <button pButton pRipple icon="pi pi-trash" *ngxPermissionsOnly="['Cliente.E']" class="p-button-rounded p-button-danger"
+                                (click)="deleteCliente(cliente)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</fieldset>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
